@@ -1,0 +1,96 @@
+.form-container {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+  align-items: center;
+  gap: 2rem;
+  flex-wrap: wrap-reverse;
+}
+.preview {
+  /* max-width: 30rem; */
+  flex-basis: 0px;
+  flex-grow: 1;
+  min-width: 20rem;
+  height: 20rem;
+  /* border: 1px solid orange; */
+  border-radius: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 3rem;
+}
+.preview span {
+  border: 1px solid orange;
+  border-radius: 1rem;
+  text-align: center;
+  padding: 5rem;
+}
+.preview img {
+  max-width: 100%;
+  max-height: 100%;
+  border-radius: 1rem;
+}
+form {
+  flex-grow: 1;
+  flex-basis: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+.list-container {
+  display: flex;
+  gap: 2rem;
+}
+.dropdown {
+  width: 16rem;
+}
+input {
+  width: 7.5rem;
+}
+.dropdown,
+option,
+input {
+  font-size: 1rem;
+  padding: 0.5rem;
+  outline: none;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.resize-btn {
+  width: 7.5rem;
+
+  font-size: 1rem;
+  padding: 0.5rem;
+  outline: none;
+  border: none;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.dims-inputs {
+  display: flex;
+  gap: 1rem;
+  width: 100%;
+  justify-content: center;
+}
+
+.dims-inputs input:invalid {
+  outline: 1px solid red;
+  animation: shake 0.1s linear;
+}
+
+@keyframes shake {
+  0% {
+    transform: translateX(5px);
+  }
+  50% {
+    transform: translateX(-5px);
+  }
+  100% {
+    transform: translateX(0px);
+  }
+}
