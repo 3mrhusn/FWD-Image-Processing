@@ -1,6 +1,9 @@
 import path from 'path';
 import fs from 'fs';
 
+export const __FullDirPath: string = path.resolve('assets', 'full');
+export const __ThumbsDirPath: string = path.resolve('assets', 'thumbs');
+
 export const getFullImgPath = (imgName: string): string | null => {
   //Check if original image exists
 
@@ -8,6 +11,12 @@ export const getFullImgPath = (imgName: string): string | null => {
 
   return fs.existsSync(imagePath) ? imagePath : null;
 };
+
+export const getThumbImgPath = (
+  filename: string,
+  width: string,
+  height: string
+) => path.resolve(__ThumbsDirPath, getFullThumbsName(filename, width, height));
 
 export const createAssetsDirIfNotExists = (): void => {
   const fullDir: string = __FullDirPath;
@@ -22,14 +31,14 @@ export const getFullThumbsName = (
   filename: string,
   width: string,
   height: string,
-  ext: string = 'jpg'
+  ext = 'jpg'
 ): string => {
-  let fullWidth: string = '';
+  let fullWidth = '';
   for (let i = 0; i < 4 - width.length; i++) {
     fullWidth += '0';
   }
   fullWidth += width;
-  let fullHeight: string = '';
+  let fullHeight = '';
   for (let i = 0; i < 4 - height.length; i++) {
     fullHeight += '0';
   }
@@ -37,7 +46,3 @@ export const getFullThumbsName = (
 
   return filename + fullWidth + fullHeight + `.${ext}`;
 };
-
-export const __FullDirPath = path.resolve('assets', 'full');
-
-export const __ThumbsDirPath = path.resolve('assets', 'thumbs');

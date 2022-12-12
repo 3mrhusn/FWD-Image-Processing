@@ -1,7 +1,8 @@
 import app from '../index';
 import supertest from 'supertest';
-import sharp from 'sharp';
-import path from 'path';
+import fs from 'fs';
+import { getThumbImgPath } from '../utils/utils';
+import { ResizeImage } from '../utils/imagesProccessing';
 const request = supertest(app);
 
 describe('Test API Responses', () => {
@@ -22,7 +23,7 @@ describe('Test API Responses', () => {
     });
   });
 
-  describe('Test requested params missing', () => {
+  describe('Test requested params', () => {
     it('Status 400 when filename is missing or invalid', async () => {
       const response = await request.get('/api/images?height=100&width=100');
       expect(response.status).toBe(400);
@@ -48,5 +49,15 @@ describe('Test API Responses', () => {
       );
       expect(response.status).toBe(404);
     });
+  });
+});
+describe('Test Image Processing', () => {
+  it('Expect to generate a resized file', async () => {
+    const thumbsFilePath = getThumbImgPath('portfolio', '300', '300');
+    if (fs.existsSync(thumbsFilePath)) {
+      fs.unlinkSync(thumbsFilePath);
+    }
+    await ResizeImage('portfolio', '300', '300');
+    expect(fs.existsSync(thumbsFilePath)).toBe(true);
   });
 });

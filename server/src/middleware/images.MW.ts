@@ -5,7 +5,7 @@ export const fullImageHandler = (
   req: Request,
   res: Response,
   next: NextFunction
-) => {
+): void => {
   //check for existance of the full image
   //filename is always exists, as we use this middleware after the paramsHandler middleware
   const filename = req.query.filename as string;
@@ -21,7 +21,7 @@ export const paramsHandler = (
   req: Request,
   res: Response,
   next: NextFunction
-) => {
+): void => {
   //Check for the existence & validation of params
   const { filename, width, height } = req.query;
 
@@ -51,7 +51,7 @@ export const assetsHandler = (
   req: Request,
   res: Response,
   next: NextFunction
-) => {
+): void => {
   createAssetsDirIfNotExists();
 
   next();
