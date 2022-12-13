@@ -1,6 +1,8 @@
 # FWD-Image-Processing
 
-This is a full stack application , created using React-Client Side & Express/Node-Server Side .
+This is my first a full stack application , created using React-Client Side & Express/Node-Server Side.
+
+it is a one week project was created to be submitted as 1st task in my Udacity FWD Web-Development Schoolarship .
 
 # Run and use server code (Backend)
 
