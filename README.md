@@ -27,7 +27,7 @@ run `npm run lint` , to Find problems in code
 | GET        | /api/images?          | To retrive a resized image by passing query parameters (filename,width,height) |
 | POST       | /api/upload           | To Upload jpg image to Full directory                                          |
 
-# Now Let Run Client Code (Frontend)
+# Now Lets Run Client Code (Frontend)
 
 ## Keep the server running and open new terminal
 
